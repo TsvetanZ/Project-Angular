@@ -25,12 +25,14 @@
                     <a class="nav-link" href="">Logout as [ test@abv.bg ]</a>
                 </li>
                 <!-- Guest users -->
-                <li class="nav-item">
-                    <a class="nav-link" href="">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Register</a>
-                </li>
+                
+                    <li class="nav-item" *ngIf="!isLogged">
+                        <a class="nav-link" href="">Login</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!isLogged">
+                        <a class="nav-link" href="">Register</a>
+                    </li>
+        
             </ul>
         </div>
     </div>

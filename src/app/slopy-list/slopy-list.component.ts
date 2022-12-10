@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { ISlope } from '../interfaces/slope';
 
 @Component({
   selector: 'app-slopy-list',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SlopyListComponent implements OnInit {
 
-  constructor() { }
+  slopeList: ISlope[] | null= null;
+  errorFetchingData = false;
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.loadSlopes().subscribe({
+      next: (value) => {
+        this.slopeList = value;
+      },
+      error: (err) => {
+        this.errorFetchingData = true;
+        console.error(err)
+      }
+    });
   }
 
 }

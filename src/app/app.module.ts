@@ -6,17 +6,24 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SlopyListComponent } from './slopy-list/slopy-list.component';
 import { ResentPostListComponent } from './resent-post-list/resent-post-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MainComponent } from './main/main.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SlopyListComponent,
-    ResentPostListComponent
+    ResentPostListComponent,
+    MainComponent,
+    
   ],
   imports: [
     BrowserModule,
     //AppRoutingModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

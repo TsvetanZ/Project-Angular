@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { IPost } from '../interfaces/post';
 
 @Component({
   selector: 'app-resent-post-list',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResentPostListComponent implements OnInit {
 
-  constructor() { }
+  listPosts: IPost[] | null= null;
+  errorFetchingData = false;
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.loadPost().subscribe({
+        next: (value) => {
+          this.listPosts = value;
+        },
+        error: (err) => {
+          this.errorFetchingData = true;
+          console.error(err)
+        }
+    });
   }
 
 }
