@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { IPost } from '../interfaces/post';
+import { IPost } from '../shared/interfaces';
 
 @Component({
   selector: 'app-resent-post-list',

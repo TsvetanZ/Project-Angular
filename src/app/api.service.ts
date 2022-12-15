@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { ISlope } from './interfaces/slope';
-import { IPost } from './interfaces/post';
+import { ISlope } from './shared/interfaces';
+import { IPost } from './shared/interfaces';
 const apiURL = environment.apiURL;
 
 @Injectable({

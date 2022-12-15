@@ -1,9 +1,12 @@
+       <!--
+
+      
        <div *ngIf="errorFetchingData">Erorr loading slopes</div>
        <app-loader *ngIf="!slopeList"></app-loader>
         <div  class="row text-center">
-            <!-- If there are shared trips in the database display each of them -->
+            <!-- If there are shared trips in the database display each of them
 
-            <!-- trip #1 -->
+            <!-- trip #1 
             <div *ngFor="let slope of slopeList" class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <img class="card-img-top"
@@ -24,36 +27,21 @@
                 </div>
             </div>
             
-            <!-- If there are no shared trips in the database -->
+            <!-- If there are no shared trips in the database
             <div class="no-trips">
                 <img src="https://www.stagweb.co.uk/img/activities/big/sexyhitchhiker1.jpg" />
                 <p class="lead">Hitchhiker time...</p>
             </div>
         </div>
 
-        <!--
+    -->
 
-             <div class="theme-container">
-                    <div class="theme-name-wrapper">
-                        <div class="theme-name">
-                            <a href="#" class="normal">
-                                <h2>Angular 10</h2>
-                            </a>
-                            <div class="columns">
-                                <div>
-                                    <p>Date: <time>2020-10-10T12:08:28.451Z</time></p>
-                                    <div class="nick-name">
-                                        <p>Username: <span>David</span></p>
-                                    </div>
-                                </div>
-                                <div class="subscribers">
-                                    <!-- <button class="subscribe">Subscribe</button> 
-                                    <p>Subscribers: <span>456</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div *ngFor="let slope of slopeList" class="card-home">
+            <h2>{{slope.themeName}}</h2>
+            <h5>{{slope.userId.username}}</h5>
+            <div class="cta-container"><a href="#" class="details-link">Details</a></div>
+            <div class="card_image"><img  src="https://www.audi.bg/media/Theme_Menu_Model_Dropdown_Item_Image_Component/root-bg-model-modelMenu-editableItems-20246-dropdown-92336-image/dh-487-a0e9a6/9896f0b2/1585833686/audi-a5-sportback-2020.jpg"></div>
 
+        </div>
 
-        -->
+      

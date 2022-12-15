@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
-import { ISlope } from '../interfaces/slope';
+import { ApiService } from '../../api.service';
+import { ISlope } from '../../shared/interfaces';
 
 @Component({
   selector: 'app-slopy-list',

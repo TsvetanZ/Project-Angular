@@ -1,4 +1,4 @@
-
+<!--
 <main>>
     <section class="container" id="shared-trips-page">
         <header class="trip">
@@ -8,5 +8,38 @@
         </header>
         <app-slopy-list></app-slopy-list>
         <app-resent-post-list></app-resent-post-list>
+    </section>
+</main>
+
+-->
+
+<section id="home-page" class="background-image">
+    <div class="home-container">
+
+        <div class="info">
+            <h1>WELCOME SKI RUN BULGARIA!</h1>
+            <h2>SKI RESORT is the best way to relax</h2>
+            <h2>Find yours the best ski-run </h2>
+        </div>
+
+    </div>
+</section>
+
+<main>
+
+    <section id="top-houses">
+        <h1>Top Houses</h1>
+        <div class="houses">
+
+
+           
+            <app-slopy-list></app-slopy-list>
+            <app-resent-post-list></app-resent-post-list>           
+
+            <!-- If there are still no offers for housing in the database display: -->
+            <!--<div class="no-data-container">
+                <p class="no-data">There are no housing offers found...</p>
+            </div>-->
+        </div>
     </section>
 </main>

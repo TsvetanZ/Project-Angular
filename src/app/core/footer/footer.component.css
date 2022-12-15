@@ -1,13 +1,13 @@
 
-
-
-  footer {
- 
-    opacity: 0.7;
-    height: 60px;
-    font-size: 40px;
-    width: 100%;
-    color: rgb(7, 56, 130);
-    padding: 0.7em 1em;
-    background-position: black;
+footer {
+  position: fixed;
+  opacity: 0.8;
+  bottom: 0;
+  height: 40px;
+  font-size: 20px;
+  width: 100%;
+  color: white;
+  padding: 0.7em 1em;
+  background-color: #000;
+  color: #ccc 
 }
