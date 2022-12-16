@@ -2,6 +2,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { MainComponent } from "./main/main.component";
 import { NewSlopeComponent } from "./new-slope/new-slope.component";
 import { SlopeDetailComponent } from "./slope-detail/slope-detail.component";
+import { SlopeResolver } from "./slope.resolver";
 //import { SlopyListComponent } from "./slopy-list/slopy-list.component";
 
 const routes: Routes = [
@@ -18,6 +19,9 @@ const routes: Routes = [
             },
             {
               path: 'detail/:id',
+              resolve: {
+                slope: SlopeResolver
+              },
               component: SlopeDetailComponent
             }
         ]

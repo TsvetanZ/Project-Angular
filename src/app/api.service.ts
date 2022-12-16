@@ -16,6 +16,10 @@ export class ApiService {
     return this.httpClient.get<ISlope[]>(apiURL +'/slopes');
   }
 
+  loadSlope( id: number) { 
+    return this.httpClient.get<ISlope>(`${apiURL}/slopes/${id}`)
+  }
+
   loadPost (limit?: number) {
     return this.httpClient.get<IPost[]>(`${apiURL}/posts${limit? `?limit=${limit}`: ``}`);
   }
