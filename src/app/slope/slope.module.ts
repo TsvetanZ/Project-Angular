@@ -5,6 +5,8 @@ import { SlopeRoutingModule } from './slope-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { NewSlopeComponent } from './new-slope/new-slope.component';
 import { SlopeDetailComponent } from './slope-detail/slope-detail.component';
+import { MainComponent } from './main/main.component';
+import { ResentPostListComponent } from './resent-post-list/resent-post-list.component';
 
 
 
@@ -13,15 +15,18 @@ import { SlopeDetailComponent } from './slope-detail/slope-detail.component';
     SlopyListComponent,
     NewSlopeComponent,
     SlopeDetailComponent,
+    MainComponent,
+    ResentPostListComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    SlopeRoutingModule
+    SlopeRoutingModule,
     
   ],
   exports:[
-    SlopyListComponent
+    SlopyListComponent,
+    MainComponent
   ]
 })
 export class SlopeModule { }

@@ -4,6 +4,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
+import { SharedModule } from '../shared/shared.module';
+import { SlopeModule } from '../slope/slope.module';
 
 
 
@@ -11,15 +14,19 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     HeaderComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    SharedModule,
+    SlopeModule
   ],
    exports: [
   HeaderComponent, 
   FooterComponent,
+  HomeComponent,
   PageNotFoundComponent
   ]
 })

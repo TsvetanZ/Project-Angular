@@ -1,12 +1,12 @@
 <nav>
     <ul>
-        <a href="#">Home</a>
-        <li><a href="#">Housing for rent</a></li>
+        <a routerLink="/">Home</a>
         <!-- Guest users -->
         <li><a *ngIf="!isLoggedIn"  routerLink="/auth/login">Login</a></li>
         <li><a *ngIf="!isLoggedIn"  routerLink="/auth/register">Register</a></li>
         <!-- Logged users -->
-        <li><a *ngIf="isLoggedIn" href="#">Create offer</a></li>
+        <li><a *ngIf="isLoggedIn" routerLink="/slope/recent">Slopes</a></li>
+        <li><a *ngIf="isLoggedIn" routerLink="/slope/new">New Ski Slope/ ski resort </a></li>
         <li><a *ngIf="isLoggedIn" routerLink="/auth/profile">Profile</a></li>
         <li><a  *ngIf="isLoggedIn" routerLink="/auth/logout">Logout as {{user?.username}}</a></li>
     </ul>

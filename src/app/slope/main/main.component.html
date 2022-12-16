@@ -11,9 +11,9 @@
     </section>
 </main>
 
--->
 
-<section id="home-page" class="background-image">
+
+<section *ngIf="!isloggedIn" id="home-page" class="background-image">
     <div class="home-container">
 
         <div class="info">
@@ -24,22 +24,15 @@
 
     </div>
 </section>
+-->
 
 <main>
-
     <section id="top-houses">
-        <h1>Top Houses</h1>
+        <app-welcome-message *ngIf="!isloggedIn"></app-welcome-message>
+        <h1>Ski Slopes</h1>
         <div class="houses">
-
-
-           
             <app-slopy-list></app-slopy-list>
             <app-resent-post-list></app-resent-post-list>           
-
-            <!-- If there are still no offers for housing in the database display: -->
-            <!--<div class="no-data-container">
-                <p class="no-data">There are no housing offers found...</p>
-            </div>-->
         </div>
     </section>
 </main>

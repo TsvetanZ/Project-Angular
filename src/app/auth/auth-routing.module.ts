@@ -1,50 +1,91 @@
 import { RouterModule, Routes } from "@angular/router";
+import { AuthActivate } from "../shared/guards/auth.activate";
 import { LoginComponent } from "./login/login.component";
 import { LogoutComponent } from "./logout/logout.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { RegisterComponent } from "./register/register.component";
 
-//const sameroutes: Routes  = [
-//    {
-//        path: 'auth/login',
-//        component:LoginComponent
-//    },
-//    {
-//        path: 'auth/register',
-//        component:RegisterComponent
-//    },
-//    {
-//        path: 'auth/logout',
-//        component: LogoutComponent
-//    },
-//    {
-//        path: 'auth/profile',
-//        component:ProfileComponent
-//    },
-//];
-
-const routes: Routes = [
+const routes: Routes  = [
     {
-        path: 'auth',
-        children: [
-            {
-            path: 'login',
-            component:LoginComponent
-        },
-        {
-            path: 'register',
-            component:RegisterComponent
-        },
-        {
-            path: 'auth/logout',
-            component: LogoutComponent
-        },
-        {
-            path: 'profile',
-            component:ProfileComponent
-        },
-        ]
-    }
+        path: 'auth/login',
+        component:LoginComponent,
+        canActivate: [AuthActivate],
+        data: {
+            title: 'LoginSkiRun',
+            loginRequired: false
+        }
+    },
+    {
+        path: 'auth/register',
+        component:RegisterComponent,
+        canActivate: [AuthActivate],
+        data: {
+            title: 'RegisterSkiRun',
+            loginRequired: false
+        }
+    },
+    {
+        path: 'auth/logout',
+        component: LogoutComponent,
+        canActivate: [AuthActivate],
+        data: {
+            loginRequired: true
+        }
+    },
+    {
+        path: 'auth/profile',
+        component:ProfileComponent,
+        canActivate: [AuthActivate],
+        data: {
+            title: 'Profile',
+            loginRequired: true
+        }
+    },
 ];
+
+//const sameroutes: Routes = [
+//    {
+//        path: 'auth',
+//        children: [
+//            {
+//            path: 'login',
+//            component:LoginComponent,
+//            canActivate: [AuthActivate],
+//            data: {
+//                title: 'LoginSkiRun',
+//                loginRequired: false
+//            }
+//        },
+//        {
+//            path: 'register',
+//            component:RegisterComponent,
+//            canActivate: [AuthActivate],
+//            data: {
+//                title:'RegisterSkiRun',
+//                loginRequired: false
+//            }
+//        },
+//        {
+//            path: 'logout',
+//            component: LogoutComponent,
+//            canActivate: [AuthActivate],
+//            data: {
+//                loginRequired: true
+//            }
+//            
+//          
+//        },
+//        {
+//            path: 'profile',
+//            component:ProfileComponent,
+//            canActivate: [AuthActivate],
+//            data: {
+//                title:'Profile',
+//                loginRequired: true
+//            }
+//        },
+//        ]
+//    }
+//];
 
 export const AuthRoutingModule = RouterModule.forChild(routes);

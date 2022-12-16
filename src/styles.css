@@ -10,7 +10,7 @@ body {
 }
 
 body {
-  background: url('../images/main_slider_1.jpg');
+  background: url('http://cdn.cnn.com/cnnnext/dam/assets/131126174149-best-ski-runs---12-corbets-couloir.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
