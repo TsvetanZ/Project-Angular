@@ -1,4 +1,5 @@
-<section id="login-page">
+<form #form="ngForm" id="login-page" (ngSubmit)="loginHandler(form)">
+    <!--{{form.getAttribute('')}} -->
     <div class="boxs">
         <div class="card-image">
             <h2 class="card-heading">
@@ -8,15 +9,33 @@
         <form class="card-form" action="" method="">
 
             <div class="input">
-                <input type="text" class="input-field" placeholder="alexander" id="username" name="" value="" />
+                <input #emailInput="ngModel" ngModel type="email" required [appEmail]="appEmailDomains" class="input-field" placeholder="gogo@gmail.com" id="username" name="email" />
                 <label class="username">Username</label>
+               <!-- {{emailInput.value}}-->     
             </div>
+           <!-- {{emailInput.errors | json}} - стова проверяме къде ни грешката-->
+            <ng-container *ngIf="emailInput.touched"> 
+                <p class="error" *ngIf="emailInput.errors?.['required']">
+            Email is required!
+                </p>
+                <p class="error" *ngIf="emailInput.errors?.['appEmailValodator']">
+            Email is not valid!
+                </p>
+          </ng-container> 
             <div class="input">
-                <input type="password" class="input-field" id="password" name="" placeholder="******" />
+                <input ngModel type="password" ngModel #passwordInput="ngModel" class="input-field" id="password" name="password" placeholder="******" required [minlength]="4" />
                 <label class="password">Password</label>
+                <ng-container *ngIf="passwordInput.touched">
+                    <p class="error"*ngIf="passwordInput.errors?.['required']">
+            Password is required!
+                    </p>
+                    <p class="error" *ngIf="passwordInput.errors?.['minlength']">
+                    Password must be at least 4 characters!
+                    </p>
+                </ng-container>
             </div>
             <div class="action">
-                <button class="action-button" (click)="loginHandler()">Login</button>
+                <button [disabled]="form.invalid"  class="action-button">Login</button>
             </div>
         </form>
         <div class="card-info">
@@ -25,4 +44,4 @@
             </p>
         </div>
     </div>
-</section>
+</form>

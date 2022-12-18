@@ -7,6 +7,7 @@ import { NewSlopeComponent } from './new-slope/new-slope.component';
 import { SlopeDetailComponent } from './slope-detail/slope-detail.component';
 import { MainComponent } from './main/main.component';
 import { ResentPostListComponent } from './resent-post-list/resent-post-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,6 +22,7 @@ import { ResentPostListComponent } from './resent-post-list/resent-post-list.com
   imports: [
     CommonModule,
     SharedModule,
+    FormsModule,
     SlopeRoutingModule,
     
   ],

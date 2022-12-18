@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -14,10 +16,14 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     LogoutComponent,
     ProfileComponent,
+    
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
+    FormsModule,
+    ReactiveFormsModule, //това за FormBuilder for register
+    SharedModule
     
   ]
 })

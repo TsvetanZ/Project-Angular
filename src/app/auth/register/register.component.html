@@ -5,30 +5,61 @@
                 Create your account
             </h2>
         </div>
-        <form class="card-form" action="" method="">
+        <form [formGroup]="form" class="card-form" (ngSubmit)="registerHandler()">
             <div class="input">
-                <input type="text" class="input-field" placeholder="Alexander Parkinson" id="name" name="" value="" />
-                <label class="name">Full Name</label>
+                <input type="text" class="input-field" placeholder="gogo@abv.bg" id="name" formControlName="email"  />
+                <label class="name">Email</label>
+                <ng-container *ngIf="form.get('email')?.touched">
+                  <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                        Email is required!
+                 </p>
+                 <p class="error" *ngIf="form.get('email')?.errors?.['appEmailValodator']">
+                        Email is not valid!
+                 </p> 
+                </ng-container>
             </div>
             <div class="input">
-                <input type="text" class="input-field" placeholder="alexander" id="username" name="" value="" />
+                <input type="text" class="input-field" placeholder="alexander" id="username" formControlName="username"  />
                 <label class="username">Username</label>
+                <p *ngIf="form.get('username')?.touched && form.get('username')?.errors?.['required']" class="error">
+                    Username is required!
+                </p>
+                <p *ngIf="form.get('username')?.errors?.['minlength']" class="error">
+                    Username is must be at least 5 characters!
+                </p>
             </div>
+        <ng-container formGroupName="pass">
             <div class="input">
-                <input type="password" class="input-field" id="password" name="" placeholder="******" />
+                <input type="password" class="input-field" id="password" formControlName="password" placeholder="******" />
                 <label class="password">Password</label>
             </div>
             <div class="input">
-                <input type="password" class="input-field" id="re-password" name="" placeholder="******" />
+                <input type="password" class="input-field" id="re-password" formControlName="rePassword" placeholder="******" />
                 <label class="re-password">Repeat Password</label>
             </div>
+            <p *ngIf="form.get('pass')?.errors?.['sameValueGroupValidator'] && form.get('pass')?.get('rePassword')?.touched" class="error">
+                Repeat Password does not match password!
+            </p>
+        </ng-container>
+      
+        <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
+            <p class="error"  *ngIf="form.get('pass')?.get('password')?.errors?.['required']">
+                Password is required!
+            </p>
+            <p class="error" *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']">
+                Password must be at least 5 characters!
+            </p>
+        </ng-container>
+        <!--{{form.value | json}}
+        {{form.get('pass')?.errors | json}} -->
+
             <div class="action">
-                <button class="action-button">Get started</button>
+                <button [disabled]="form.invalid" class="action-button">Get started</button>
             </div>
         </form>
 
         <div class="card-info">
-            <small>Already have an account?<a href="#"> Sign in</a>
+            <small>Already have an account?<a routerLink="/auth/login"> Sign in</a>
             </small>
         </div>
     </div>

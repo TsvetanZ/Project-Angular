@@ -5,41 +5,63 @@
         <h2 class="box-heading"> Add ski RESORT</h2>
 
 
-        <form class="form" action="" method="">
+        <form #form="ngForm" class="form" (ngSubmit)="newSlopeHandler(form)">
             <div class="input">
-                <input type="text" class="input-field" id="home-name" placeholder="Real House Luxury Villa..." name="" value="" />
+                <input type="text" #nameInput="ngModel" class="input-field" id="home-name" placeholder="Borovets" ngModel required minlength="4" name="resortName" />
                 <label class="home-name">Name:</label>
+                <ng-container *ngIf="nameInput.touched">
+                    <p class="error" *ngIf="nameInput.errors?.['required']">
+                        Resort name is required.
+                    </p>
+                    <p class="error" *ngIf="nameInput.errors?.['minlength']">
+                        Resort name must be at least {{nameInput.errors?.['minlength']['requiredLength']}} characters long.
+                    </p>
+                </ng-container>
+            </div>
+
+           <!-- <div class="input">
+                <input type="text" class="input-field" id="type" placeholder="Popagelov" ngModel name="slope"/>
+                <label class="type">The best slope:</label>
             </div>
             <div class="input">
-                <input type="text" class="input-field" id="type" placeholder="Villa..." name="" value="" />
-                <label class="type">Property Type:</label>
+                <input type="number" class="input-field" id="year" placeholder="10" name="numberSlope"  />
+                <label class="year">Number of slope:</label>
             </div>
             <div class="input">
-                <input type="number" class="input-field" id="year" placeholder="2018..." name="" value="" />
-                <label class="year">Year Built:</label>
-            </div>
-            <div class="input">
-                <input type="text" class="input-field" id="city" placeholder="Sofia..." name="" value="" />
-                <label class="city">City</label>
+                <input type="text" class="input-field" id="city" placeholder="Sofia" ngModel name="locality"  />
+                <label class="city">Locality</label>
             </div>
 
             <div class="input">
-                <input type="text" class="input-field" id="homeImage" placeholder="Image..." name="" value="" />
-                <label class="homeImage">Home Image:</label>
-            </div>
+                <input type="text" class="input-field" id="homeImage" placeholder="Image..." name=""  />
+                <label class="homeImage">Image:</label>
+            </div> -->
 
             <div class="input">
-                <input type="text" class="input-field" id="description" placeholder="Description..." name="" value="" />
-                <label class="description">Property Description:</label>
+                <label class="description">Post <span class="red">*</span></label>
+                <textarea  type="text" #textInput="ngModel" ngModel required minlength="10" name="postText" id="postText" rows="8" class="height"></textarea>
+                <ng-container *ngIf="textInput.touched">
+                    <p class="error" *ngIf="textInput.errors?.['required']">
+                        The field with your post is required.
+                    </p>
+                    <p class="error" *ngIf="textInput.errors?.['minlength']">
+                        Post must be at least {{textInput.errors?.['minlength']['requiredLength']}} characters long.
+                    </p>
+                </ng-container>
+               <!-- <input type="text" class="input-field" id="description" placeholder="Description..." name="" value="" />
+                <label class="description">Post:</label>-->
             </div>
 
-            <div class="input">
+            <!--<div class="input">
                 <input type="number" class="input-field" id="availablePieces" placeholder="1" name="" value="" />
                 <label class="availablePieces">Available pieces:</label>
-            </div>
+            </div> -->
 
             <div class="create-action">
-                <button class="create-button">Add</button>
+                <button class="create-button"[disabled]="form.invalid">Add</button>
+            </div>
+            <div class="create-action">
+            <button class="create-button" type="button" routerLink="/slope/recent">Cancel</button>
             </div>
 
 

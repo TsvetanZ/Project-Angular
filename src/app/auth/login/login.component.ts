@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { appEmailDomains } from 'src/app/shared/guards/constants';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -9,6 +11,15 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
+  appEmailDomains= appEmailDomains;
+  @ViewChild(
+    //'form', //разликата между form i NgForm nikakwa зависи какво има на HTML
+    NgForm,
+    {static: true}
+  ) form!: ElementRef<HTMLInputElement>;
+
+  //@ViewChild('files', {static: true})  files!:ElementRef<HTMLInputElement>;
+
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) { 
  //   this.authService.user = {
  //     username: 'David',
@@ -16,13 +27,14 @@ export class LoginComponent {
 //
  //   this.router.navigate(['/']);
  }
-loginHandler(): void {
+loginHandler(form: NgForm): void {
+   //console.log(this.files.nativeElemnt.files)
+  if(form.invalid) {return;}
    this.authService.user = {
      username: 'David',
    } as any;
 
    const returnUrl = this.activatedRoute.snapshot.queryParams[`returnUrl`] || '/';
-   console.log(returnUrl)
    this.router.navigate([returnUrl]);
  }
 }
