@@ -6,9 +6,7 @@ import { SlopeResolver } from "./slope.resolver";
 //import { SlopyListComponent } from "./slopy-list/slopy-list.component";
 
 const routes: Routes = [
-    {
-        path: 'slope',
-        children: [
+    
             {
                 path: 'recent',
                 component: MainComponent
@@ -24,8 +22,7 @@ const routes: Routes = [
               },
               component: SlopeDetailComponent
             }
-        ]
-    }
+     
 ];
 
 export const SlopeRoutingModule = RouterModule.forChild(routes);

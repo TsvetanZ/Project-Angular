@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { SlopeModule } from '../slope/slope.module';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -15,7 +16,8 @@ import { SlopeModule } from '../slope/slope.module';
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { SlopeModule } from '../slope/slope.module';
   HeaderComponent, 
   FooterComponent,
   HomeComponent,
-  PageNotFoundComponent
+  PageNotFoundComponent,
+  ErrorComponent
   ]
 })
 export class CoreModule { }

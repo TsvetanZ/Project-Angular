@@ -37,7 +37,7 @@
     -->
 
         <div *ngFor="let slope of slopeList" class="card-home">
-            <h2>{{slope.themeName}}</h2>
+            <h2>{{slope.themeName | shortT: 25}}</h2>
             <h5>{{slope.userId.username}}</h5>
             <div class="cta-container"><a href="#" class="details-link">Details</a></div>
             <div class="card_image"><img  src="https://www.audi.bg/media/Theme_Menu_Model_Dropdown_Item_Image_Component/root-bg-model-modelMenu-editableItems-20246-dropdown-92336-image/dh-487-a0e9a6/9896f0b2/1585833686/audi-a5-sportback-2020.jpg"></div>

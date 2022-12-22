@@ -1,4 +1,4 @@
-<form #form="ngForm" id="login-page" (ngSubmit)="loginHandler(form)">
+<section id="login-page">
     <!--{{form.getAttribute('')}} -->
     <div class="boxs">
         <div class="card-image">
@@ -6,42 +6,43 @@
                 Login
             </h2>
         </div>
-        <form class="card-form" action="" method="">
+        <form class="card-form" #form="ngForm" id="login-page" (ngSubmit)="loginHandler(form)">
 
             <div class="input">
-                <input #emailInput="ngModel" ngModel type="email" required [appEmail]="appEmailDomains" class="input-field" placeholder="gogo@gmail.com" id="username" name="email" />
-                <label class="username">Username</label>
-               <!-- {{emailInput.value}}-->     
+                <input #emailInput="ngModel" ngModel required type="text"   class="input-field" placeholder="gogo@gmail.com" id="email" name="email" />
+                <label class="username">Email</label>  
             </div>
-           <!-- {{emailInput.errors | json}} - стова проверяме къде ни грешката-->
+           <!--- {{emailInput.errors | json}}  стова проверяме къде ни грешката-->
             <ng-container *ngIf="emailInput.touched"> 
                 <p class="error" *ngIf="emailInput.errors?.['required']">
             Email is required!
                 </p>
-                <p class="error" *ngIf="emailInput.errors?.['appEmailValodator']">
+               <!-- <p class="error" *ngIf="emailInput.errors?.['appEmailValodator']">
             Email is not valid!
-                </p>
+                </p>-->
           </ng-container> 
             <div class="input">
-                <input ngModel type="password" ngModel #passwordInput="ngModel" class="input-field" id="password" name="password" placeholder="******" required [minlength]="4" />
+                <input ngModel type="password" ngModel #passwordInput="ngModel" class="input-field" id="password" name="password" placeholder="******" required [minlength]="5" />
                 <label class="password">Password</label>
                 <ng-container *ngIf="passwordInput.touched">
                     <p class="error"*ngIf="passwordInput.errors?.['required']">
             Password is required!
                     </p>
                     <p class="error" *ngIf="passwordInput.errors?.['minlength']">
-                    Password must be at least 4 characters!
+                    Password must be at least 5 characters!
                     </p>
                 </ng-container>
             </div>
+            <!--{{passwordInput.errors | json}} -->
             <div class="action">
-                <button [disabled]="form.invalid"  class="action-button">Login</button>
+                <button [disabled]="form.invalid" class="action-button">Login</button> 
+                loginHandler.errors | json
             </div>
         </form>
         <div class="card-info">
             <p>Dont have an account?
-                <a href="#">Sign up</a>.
+                <a routerLink="/auth/register">Sign up</a>.
             </p>
         </div>
     </div>
-</form>
+</section>

@@ -1,14 +1,54 @@
-<main>
-    <section id="user">
+ <section id="user">
+     <form [formGroup]="form" (ngSubmit)="saveProfile()">
         <div class="user-info">
             <div class="user-logo">
-                <img src="/assets/profile.png">
+                <img src="/assets/profile.png" alt="default user">
             </div>
-            <h1 class="user-email">peter@abv.bg</h1>
-            <h2 class="created-blogs-count">Total Created Blogs: 1</h2>
-            <h2 class="followed-blogs-count">Total Followed Blogs: 2</h2>
+
+                <h1 class="user-email">Username:
+                    <ng-container *ngIf="showEditMode">
+                    <input type="text" formControlName="username" >
+                        <ng-container *ngIf="form.get('username')?.touched || formSubmitted">
+                            <p *ngIf="form.get('username')?.errors?.['required']" class="error">
+                                Username is required!
+                            </p>
+                            <p *ngIf="form.get('username')?.errors?.['minlength']" class="error">
+                                Username is must be at least 5 characters!
+                            </p>
+                        </ng-container>
+                    </ng-container> 
+                    <ng-container *ngIf="!showEditMode">
+                      {{user.username}}
+                    </ng-container>
+                </h1>                         
+                <h2 class="created-blogs-count">
+                    <ng-container *ngIf="showEditMode">
+                        <input  type="text" formControlName="email">
+                        <ng-container *ngIf="form.get('email')?.touched || formSubmitted" >
+                            <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                                  Email is required!
+                            </p>
+                            <p class="error" *ngIf="form.get('email')?.errors?.['appEmailValodator']">
+                                  Email is not valid!
+                            </p> 
+                        </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="!showEditMode">
+                    {{user.email}}
+                </ng-container>
+                </h2>
         </div>
-    </section>
+        <ng-template #edit>
+            <button class="create-button" type="submit">Save</button>
+        </ng-template>
+        <ng-template #nonEdit>
+            <button class="create-button" type="button" (click)="toggleEditMode()">Edit</button>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="showEditMode ? edit:nonEdit"></ng-container>
+    
+    </form>
+</section>
+    <!--
     <section class="profile-blogs">
         <div class="created-blogs">
             <h2 class="section-title">Add Ski Resort Blogs</h2>
@@ -20,9 +60,9 @@
                 </div>
             </div>
 
-            <!-- If there are no created blogs
+             If there are no created blogs
                 <h2 class="no-blog-in-profile">You haven't published a blog yet...</h2>
-            -->
+            
         </div>
 
         <div class="followed-blogs">
@@ -42,10 +82,9 @@
                 </div>
             </div>
             
-            <!-- If there are no followed blogs
+             If there are no followed blogs
             <h2 class="no-blog-in-profile">You have no blogs followed yet…</h2>
-            -->
+            
         </div>
 
-    </section>
-</main>
+    </section> -->

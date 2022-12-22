@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { SlopeModule } from './slope/slope.module';
+import { AppInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { API_ERROR } from './shared/guards/constants';
+import { BehaviorSubject } from 'rxjs';
 
 
 //import { Component, ModuleWithProviders, NgModule } from '@angular/core';
@@ -23,13 +27,11 @@ import { SlopeModule } from './slope/slope.module';
 @NgModule({
   declarations: [
     AppComponent,
-   
-    
-    
+    AuthenticateComponent,
+      
   ],
+  
   imports: [
-    AuthModule,
-    SlopeModule,
     AppRoutingModule,
     BrowserModule,
     CoreModule,
@@ -38,7 +40,14 @@ import { SlopeModule } from './slope/slope.module';
     
   
   ],
-  providers: [],
+  providers:[
+    AppInterceptorProvider,
+    {
+      provide:API_ERROR,
+      useValue: new BehaviorSubject(null)
+    }
+  ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

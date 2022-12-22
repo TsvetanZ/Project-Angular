@@ -1,5 +1,6 @@
 #user {
-    width: 50%;
+    width: 30%;
+    padding: 1%;
     background-color: white;
     display: block;
     margin-left: auto;
@@ -7,6 +8,9 @@
     margin-top: 20px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+    border-bottom-left-radius:  20px;
+    border-bottom-right-radius:  20px;
+    display: flex;
   }
   
   .user-logo img {
@@ -138,4 +142,17 @@
     text-align: center;
     margin-top: 30px;
   }
-  
+
+  .create-button {
+    margin-left: 35%;
+    font: inherit;
+    font-size: 1.1rem;
+    padding: 0.5em;
+    width: 30%;
+    font-weight: 100;
+    background-color: #6658d3;
+    border-radius: 6px;
+    color: #FFF;
+    border: 0;
+}
+

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { appEmailDomains } from 'src/app/shared/guards/constants';
 import { AuthService } from '../auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,8 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-  appEmailDomains= appEmailDomains;
+  appEmailDomains = appEmailDomains;
+ 
   @ViewChild(
     //'form', //разликата между form i NgForm nikakwa зависи какво има на HTML
     NgForm,
@@ -27,14 +29,20 @@ export class LoginComponent {
 //
  //   this.router.navigate(['/']);
  }
-loginHandler(form: NgForm): void {
+ loginHandler (form: NgForm): void {
    //console.log(this.files.nativeElemnt.files)
   if(form.invalid) {return;}
-   this.authService.user = {
-     username: 'David',
-   } as any;
+  const { email, password} = form.value;
+  this.authService.login(email!, password!)
+   .subscribe(user => {
+    //console.log(user)
+
+    //this.authService.user = user; махнах го и от regester защото го направихме в authaervice  s   subscription
+    this.router.navigate(['/slope/recent']);
+    });
 
    const returnUrl = this.activatedRoute.snapshot.queryParams[`returnUrl`] || '/';
+   
    this.router.navigate([returnUrl]);
  }
 }
