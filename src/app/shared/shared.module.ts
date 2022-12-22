@@ -4,7 +4,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
 import { RouterModule } from '@angular/router';
 import { AppEmailDirective } from './validators/app-email.directive';
-import { ShortTPipe } from './pipes/short-t.pipe';
+import { ShortTPipe } from './short-t.pipe';
 import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
 
 

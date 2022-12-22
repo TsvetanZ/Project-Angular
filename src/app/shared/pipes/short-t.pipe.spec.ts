@@ -1,4 +1,4 @@
-import { ShortTPipe } from './short-t.pipe';
+import { ShortTPipe } from '../short-t.pipe';
 
 describe('ShortTPipe', () => {
   it('create an instance', () => {

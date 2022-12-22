@@ -1,7 +1,7 @@
 import { IUser } from "./user";
 
 export interface  ISlope {
-    themeName: string,
+    themeName: string, // 
     subscribers:string[],
     userId: IUser, 
     posts: string[],

@@ -7,8 +7,8 @@
 
         <form #form="ngForm" class="form" (ngSubmit)="newSlopeHandler(form)">
             <div class="input">
-                <input type="text" #nameInput="ngModel" class="input-field" id="home-name" placeholder="Borovets" ngModel required minlength="4" name="resortName" />
-                <label class="home-name">Name:</label>
+                <input type="text" #nameInput="ngModel" class="input-field" id="themeName" placeholder="Borovets" ngModel required minlength="4" name="themeName" />
+                <label class="home-name" for="themeName">Name:</label>
                 <ng-container *ngIf="nameInput.touched">
                     <p class="error" *ngIf="nameInput.errors?.['required']">
                         Resort name is required.
@@ -38,7 +38,7 @@
             </div> -->
 
             <div class="input">
-                <label class="description">Post <span class="red">*</span></label>
+                <label class="description" for="postText">Post <span class="red">*</span></label>
                 <textarea  type="text" #textInput="ngModel" ngModel required minlength="10" name="postText" id="postText" rows="8" class="height"></textarea>
                 <ng-container *ngIf="textInput.touched">
                     <p class="error" *ngIf="textInput.errors?.['required']">

@@ -45,10 +45,11 @@ export class ProfileComponent {
       this.formSubmitted = true;
         if(this.form.invalid) {return;}
         const { username, email } = this.form.value;
-        this.authService.user = {
-          username, email
-        } as any;
-        this.toggleEditMode();
+        this.authService.setProfile(username!, email!).subscribe(()=> {
+          this.toggleEditMode();
+        });
+          
+        
     }
 
 
