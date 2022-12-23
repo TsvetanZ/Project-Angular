@@ -8,12 +8,14 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 //import { MainComponent } from './slope/main/main.component';
 import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
-import { SlopeModule } from './slope/slope.module';
+import { AuthModule } from './auth/auth.module'; // премахното ол lazy modul
+import { SlopeModule } from './slope/slope.module';  // премахното ол lazy modul
 import { AppInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { API_ERROR } from './shared/guards/constants';
 import { BehaviorSubject } from 'rxjs';
+import { NgOptimizedImage } from '@angular/common';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 
 //import { Component, ModuleWithProviders, NgModule } from '@angular/core';
@@ -28,6 +30,8 @@ import { BehaviorSubject } from 'rxjs';
   declarations: [
     AppComponent,
     AuthenticateComponent,
+    ImageUploadComponent,
+    
       
   ],
   
@@ -37,8 +41,8 @@ import { BehaviorSubject } from 'rxjs';
     CoreModule,
     HttpClientModule,
     SharedModule,
+    NgOptimizedImage,
     
-  
   ],
   providers:[
     AppInterceptorProvider,

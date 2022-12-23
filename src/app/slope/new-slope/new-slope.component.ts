@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SlopeService } from '../slope.service';
+import {NgOptimizedImage}  from '@angular/common';
 
 @Component({
   selector: 'app-new-slope',
@@ -15,7 +16,7 @@ export class NewSlopeComponent  {
   newSlopeHandler(form: NgForm) :void {
     if(form.invalid) {return;}
     //console.log(form.value);
-    const {themeName, postText } = form.value;
+    const {themeName, postText, imageUrl } = form.value;
 
     this.slopeService.createSlope(themeName, postText)
     .subscribe(() => {

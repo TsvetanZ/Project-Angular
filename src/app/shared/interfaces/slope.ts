@@ -7,4 +7,5 @@ export interface  ISlope {
     posts: string[],
     created_at: string;
     updateAt: string;
+    imageUrl: string;
 }

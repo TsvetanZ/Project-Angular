@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { ISlope } from '../../shared/interfaces';
 
+
 @Component({
   selector: 'app-slopy-list',
   templateUrl: './slopy-list.component.html',
